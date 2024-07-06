@@ -3,6 +3,8 @@ var app = express();
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
+require("dotenv").config();
+const PORT = process.env.PORT || 4500
 
 var cors = require('cors')
 app.use(cors())
@@ -17,4 +19,4 @@ app.use('/reg',registrationAPI);
 app.use('/Doc', DocRegistrationAPI);
 
 app.use('/Pat',PatRegistrationAPI)
-app.listen(4500, () => console.log('EXPRESS Server Started at Port No: 4500 '));
+app.listen(PORT, () => console.log(`EXPRESS Server Started at Port No: ${PORT}`));
